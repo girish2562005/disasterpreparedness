@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Emergency Preparedness Design System
+   Colors inspired by emergency services, safety, and trust
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Emergency Blue - Deep, trustworthy, authoritative */
+    --background: 210 40% 98%;
+    --foreground: 215 30% 15%;
+
+    /* Card system with subtle emergency tints */
+    --card: 210 30% 99%;
+    --card-foreground: 215 30% 15%;
+
+    --popover: 210 30% 99%;
+    --popover-foreground: 215 30% 15%;
+
+    /* Primary - Emergency Services Blue */
+    --primary: 210 90% 35%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 210 85% 45%;
+
+    /* Secondary - Safety Green */
+    --secondary: 140 50% 40%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted tones for supporting content */
+    --muted: 210 25% 92%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Accent - Warning Orange for important highlights */
+    --accent: 25 90% 55%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive - Emergency Red */
+    --destructive: 0 85% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Success - Safety Achievement Green */
+    --success: 140 70% 45%;
+    --success-foreground: 210 40% 98%;
+
+    /* Warning - Alert Yellow */
+    --warning: 45 90% 55%;
+    --warning-foreground: 215 30% 15%;
+
+    /* Border and input styling */
+    --border: 210 20% 85%;
+    --input: 210 20% 90%;
+    --ring: 210 90% 35%;
+
+    --radius: 0.75rem;
+
+    /* Emergency gradients for hero sections and highlights */
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(140 70% 55%));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(35 90% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+
+    /* Shadows with emergency theme */
+    --shadow-emergency: 0 10px 40px -10px hsl(var(--primary) / 0.3);
+    --shadow-success: 0 8px 30px -8px hsl(var(--success) / 0.25);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
+
+    /* Animations */
+    --transition-emergency: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar for navigation */
+    --sidebar-background: 210 35% 96%;
+    --sidebar-foreground: 215 30% 25%;
+    --sidebar-primary: 210 90% 35%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 25% 92%;
+    --sidebar-accent-foreground: 215 30% 25%;
+    --sidebar-border: 210 20% 85%;
+    --sidebar-ring: 210 90% 35%;
+  }
+
+  .dark {
+    /* Dark theme for emergency preparedness */
+    --background: 215 30% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 40% 95%;
+
+    /* Dark theme primary - Bright emergency blue */
+    --primary: 210 85% 55%;
+    --primary-foreground: 215 30% 8%;
+    --primary-glow: 210 80% 65%;
+
+    /* Dark theme secondary - Bright safety green */
+    --secondary: 140 60% 50%;
+    --secondary-foreground: 215 30% 8%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 65%;
+
+    /* Dark theme accent - Warning orange */
+    --accent: 25 85% 60%;
+    --accent-foreground: 215 30% 8%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 210 40% 95%;
+
+    --success: 140 65% 50%;
+    --success-foreground: 215 30% 8%;
+
+    --warning: 45 85% 60%;
+    --warning-foreground: 215 30% 8%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 18%;
+    --ring: 210 85% 55%;
+
+    /* Dark theme gradients */
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(140 65% 60%));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(35 85% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+
+    /* Dark theme sidebar */
+    --sidebar-background: 215 25% 10%;
+    --sidebar-foreground: 210 40% 90%;
+    --sidebar-primary: 210 85% 55%;
+    --sidebar-primary-foreground: 215 30% 8%;
+    --sidebar-accent: 215 20% 18%;
+    --sidebar-accent-foreground: 210 40% 90%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 210 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  /* Emergency preparedness specific styles */
+  .emergency-gradient {
+    background: var(--gradient-emergency);
+  }
+
+  .success-gradient {
+    background: var(--gradient-success);
+  }
+
+  .warning-gradient {
+    background: var(--gradient-warning);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .emergency-glow {
+    box-shadow: var(--shadow-emergency);
+  }
+
+  .success-glow {
+    box-shadow: var(--shadow-success);
+  }
+
+  .emergency-transition {
+    transition: var(--transition-emergency);
+  }
+
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+
+  /* Pulse animation for alerts */
+  @keyframes emergency-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  .emergency-pulse {
+    animation: emergency-pulse 2s infinite;
+  }
+
+  /* Badge animations */
+  @keyframes badge-celebration {
+    0% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  .badge-celebration {
+    animation: badge-celebration 0.6s ease-in-out;
+  }
+}
